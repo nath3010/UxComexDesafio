@@ -1,0 +1,45 @@
+﻿@model UxComexDesafio.Models.Endereco
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir</h1>
+
+<h3>Você tem certeza que deseja excluir ?</h3>
+<div>
+    <h4>Endereço</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EnderecoNome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EnderecoNome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cep)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+    </form>
+    <br />
+    <a href="javascript:history.back()">Voltar para a Lista</a>
+</div>

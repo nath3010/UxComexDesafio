@@ -1,0 +1,45 @@
+﻿@model IEnumerable<UxComexDesafio.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Pessoas</h1>
+<br />
+<p>
+    <a asp-action="Create" class="btn btn-primary mx-2"> + Cadastro </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Nome, "Edit", "Pessoas",new { id=item.Pessoaid})
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                    @Html.ActionLink("X", "Delete", new {  id=item.Pessoaid }, new { @class = "btn btn-outline-danger btn-sm" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
