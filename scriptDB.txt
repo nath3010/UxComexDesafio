@@ -1,0 +1,44 @@
+CREATE DATABASE UxComexDesafio
+
+use UxComexDesafio
+
+CREATE TABLE Pessoas (
+    Pessoaid int IDENTITY(1,1) PRIMARY KEY,
+    Nome varchar(255) NOT NULL,
+    Cpf VARCHAR(50)  NOT NULL,
+    Telefone varchar(50)
+);
+
+
+SELECT * FROM Pessoas
+
+INSERT INTO Pessoas (Nome, Cpf, Telefone)
+VALUES ('Maria', '054.342.138-40','(11) 11658-1867');
+
+
+INSERT INTO Pessoas (Nome, Cpf, Telefone)
+VALUES ('Mario', '126.384.448-04','(11) 16115-4327');
+
+INSERT INTO Pessoas (Nome, Cpf, Telefone)
+VALUES ('Carolina', '079.675.858-10','(11) 82149-8934');
+
+
+   CREATE TABLE Enderecos (
+   Enderecoid int IDENTITY(1,1) PRIMARY KEY,
+   Pessoaid int FOREIGN KEY REFERENCES Pessoas(Pessoaid),
+   EnderecoNome varchar(255) NOT NULL,
+   Cep VARCHAR(20)  NOT NULL,
+   Cidade VARCHAR(20)  NOT NULL,
+   Estado VARCHAR(20)  NOT NULL
+   );
+
+
+INSERT INTO Enderecos (Pessoaid, EnderecoNome, Cep, Cidade, Estado)
+VALUES (1, 'Avenida Tocantins','75802095', 'Jataí', 'GO');
+
+INSERT INTO Enderecos (Pessoaid, EnderecoNome, Cep, Cidade, Estado)
+VALUES (1, 'Rua Arlindo Nogueira','64000290', 'Teresina', 'PI');
+
+INSERT INTO Enderecos (Pessoaid, EnderecoNome, Cep, Cidade, Estado)
+VALUES (2, 'Rua dos Carijós','30120060', 'Belo Horizonte', 'MG');
+
